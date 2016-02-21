@@ -1,0 +1,21 @@
+{
+  "name": "cljs-go",
+  "version": "1.0.0",
+  "description": "FIXME: Write a one-line description of your library/project.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "./node_modules/.bin/postcss -u autoprefixer --autoprefixer.browsers \"> 5%\" -u precss -d resources/public/css/ resources/css/*.css",
+    "watch": "./node_modules/.bin/postcss -w -u autoprefixer --autoprefixer.browsers \"> 5%\" -u precss -d resources/public/css/ resources/css/*.css"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^6.3.3",
+    "postcss-cli": "^2.5.1",
+    "precss": "^1.4.0"
+  }
+}

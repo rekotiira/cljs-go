@@ -1,0 +1,113 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#app {
+    width: 100%;
+    height: 100%;
+}
+
+.game {
+    height: 100%;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+            justify-content: center;
+}
+
+.game .board {
+    width: 90vmin;
+    height: 90vmin;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+}
+
+.game .board .row {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    -webkit-box-flex: 1;
+    flex: 1;
+}
+
+.game .board .row .intersection {
+    -webkit-box-flex: 1;
+    flex: 1;
+    position: relative;
+}
+
+.game .board .row .intersection .stone {
+    display: none;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+
+.game .board .row .intersection .subtile {
+    width: 50%;
+    height: 50%;
+    position: absolute
+}
+
+.game .board .row .intersection .subtile.top {
+    top: 0;
+    border-bottom: 1px solid #000;
+}
+
+.game .board .row .intersection .subtile.bottom {
+    bottom: 0;
+}
+
+.game .board .row .intersection .subtile.left {
+    left: 0;
+    border-right: 1px solid #000;
+}
+
+.game .board .row .intersection .subtile.right {
+    right: 0;
+}
+
+.game .board .row .intersection.black .stone {
+    display: block;
+    background-image: url(../img/black-stone.png);
+}
+
+.game .board .row .intersection.white .stone {
+    display: block;
+    background-image: url(../img/white-stone.png);
+}
+
+.game .board .row .intersection.open.valid-move:hover .stone {
+    display: block;
+    opacity: 0.75;
+}
+
+.game .board .row .intersection:first-child div.left, .game .board .row .intersection:last-child div.right {
+    border-bottom: 0;
+}
+
+.game .board .row:first-child .intersection div.top, .game .board .row:last-child .intersection div.bottom {
+    border-right: 0;
+}
+
+.game.black-turn .stone {
+    background-image: url(../img/black-stone.png);
+}
+
+.game.white-turn .stone {
+    background-image: url(../img/white-stone.png);
+}

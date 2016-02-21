@@ -1,0 +1,106 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#app {
+    width: 100%;
+    height: 100%;
+}
+
+.game {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .board {
+        width: 90vmin;
+        height: 90vmin;
+        display: flex;
+        flex-direction: column;
+
+        .row {
+            display: flex;
+            flex-direction: row;
+            flex: 1;
+
+            .intersection {
+                flex: 1;
+                position: relative;
+
+                .stone {
+                    display: none;
+                    position: absolute;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    width: 100%;
+                    height: 100%;
+                    left: 0;
+                    top: 0;
+                }
+
+                &.black .stone {
+                    display: block;
+                    background-image: url(../img/black-stone.png);
+                }
+
+                &.white .stone {
+                    display: block;
+                    background-image: url(../img/white-stone.png);
+                }
+                
+                &.open.valid-move:hover .stone {
+                    display: block;
+                    opacity: 0.75;
+                }
+
+                .subtile {
+                    width: 50%;
+                    height: 50%;
+                    position: absolute;
+
+                    &.top {
+                        top: 0;
+                        border-bottom: 1px solid #000;
+                    }
+
+                    &.bottom {
+                        bottom: 0;
+                    }
+
+                    &.left {
+                        left: 0;
+                        border-right: 1px solid #000;
+                    }
+
+                    &.right {
+                        right: 0;
+                    }
+                }
+
+                &:first-child div.left, &:last-child div.right {
+                    border-bottom: 0;
+                }
+            }
+
+            &:first-child .intersection div.top, &:last-child .intersection div.bottom {
+                border-right: 0;
+            }
+        }
+    }
+
+    &.black-turn {
+        .stone {
+            background-image: url(../img/black-stone.png);
+        }
+    }
+
+    &.white-turn {
+        .stone {
+            background-image: url(../img/white-stone.png);
+        }
+    }
+}
